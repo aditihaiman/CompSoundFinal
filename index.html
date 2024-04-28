@@ -11,19 +11,23 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <script src="automata.js"></script>
-
-    <style>
-        canvas {
-            /* border: 2px solid black; */
-            margin: 10px;
-        }
-    </style>
 </head>
 
 <body>
-    <canvas id="canvas" width="300" height="300"></canvas>
-    <button type="button" id="start">Start</button> 
-    <button type="button" id="stop">Stop</button> 
-    <button type="button" id="clear">Clear</button> 
-
+    <div class="container p-4">
+        <div class="col">
+            <div class="row p-2">
+                <button type="button" id="start" class="mr-2">Start Time</button> 
+                <button type="button" id="stop" class="mr-2">Stop Time</button> 
+                <button type="button" id="clear" class="mr-2">Clear</button> 
+                <button type="button" id="random" class="">Randomize</button> 
+            </div>
+            <div class="row p-2">
+                <canvas id="canvas" width="400" height="400"></canvas>
+            </div>
+        </div>
+        
+    </div>
+    
+    
 </body>

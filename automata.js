@@ -1,6 +1,8 @@
-const grid_size = 15;
+let grid_size = 15;
 let step_interval_id = 0;
 let grid = []
+let birth_rule = [3]
+let survive_rule = [2, 3]
 
 
 let next_grid;
@@ -17,7 +19,7 @@ $(function () {
     setup_neighbors();
     console.log(neighbors);
     $("#start").on('click', function(e){
-        step_interval_id = setInterval(step_grid, 500);
+        step_interval_id = setInterval(step_grid, 100);
         $("#start").prop("disabled",true);
         $("#stop").prop("disabled",false);
     })
@@ -27,12 +29,23 @@ $(function () {
         $("#start").prop("disabled",false);
     })
     $("#clear").on('click', reset_grid);
+    $("#random").on('click', randomize_grid);
 });
 
 function reset_grid(){
     grid = [];
     for (let i = 0; i < grid_size; i++) {
-        grid.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+        let r = Array.from({length: grid_size}, () => 0);
+        grid.push(r);
+    }
+    update_canvas();
+}
+
+function randomize_grid(){
+    grid = [];
+    for (let i = 0; i < grid_size; i++) {
+        let r = Array.from({length: grid_size}, () => Math.floor(Math.random() * 2));
+        grid.push(r);
     }
     update_canvas();
 }
@@ -50,10 +63,10 @@ function step_grid(){
             }
             //RULE
             if(curr_alive){
-                if(alive_neighbors < 2 || alive_neighbors > 3) next_grid[i][j] = 0;
+                if(!survive_rule.includes(alive_neighbors)) next_grid[i][j] = 0;
             }
             else{
-                if(alive_neighbors == 3) next_grid[i][j] = 1;
+                if(birth_rule.includes(alive_neighbors)) next_grid[i][j] = 1;
             }
         }
     }
