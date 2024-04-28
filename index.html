@@ -11,21 +11,40 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <script src="automata.js"></script>
+
 </head>
 
 <body>
     <div class="container p-4">
-        <div class="col">
-            <div class="row p-2">
-                <button type="button" id="start" class="mr-2">Start Time</button> 
-                <button type="button" id="stop" class="mr-2">Stop Time</button> 
-                <button type="button" id="clear" class="mr-2">Clear</button> 
-                <button type="button" id="random" class="">Randomize</button> 
+        <div class="row">
+            <div class="col">
+                <div class="row p-2">
+                    <button type="button" id="start" class="mr-2">Start Time</button> 
+                    <button type="button" id="stop" class="mr-2">Stop Time</button> 
+                    <button type="button" id="clear" class="mr-2">Clear</button> 
+                    <button type="button" id="random" class="">Randomize</button> 
+                </div>
+                <div class="row p-2">
+                    <canvas id="canvas" width="300" height="300"></canvas>
+                </div>
             </div>
-            <div class="row p-2">
-                <canvas id="canvas" width="400" height="400"></canvas>
+            <div class="col">
+                <div class="row m-3">
+                    <label for="birth_rule" class="m-2">Choose Birth Rule</label>
+                    <input type="text" placeholder="3" id="birth_rule" class="m-2">
+                    <button type="button" id="birth_submit" class="btn btn-primary">Submit</button>
+                </div>
+                <div class="row m-3">
+                    <label for="survive_rule" class="m-2">Choose Survival Rule</label>
+                    <input type="text" placeholder="2, 3" id="survive_rule" class="m-2">
+                    <button type="button" id="survive_submit" class="btn btn-primary">Submit</button>
+
+                </div>            
+    
+                
             </div>
         </div>
+        
         
     </div>
     

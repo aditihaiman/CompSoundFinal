@@ -19,7 +19,7 @@ $(function () {
     setup_neighbors();
     console.log(neighbors);
     $("#start").on('click', function(e){
-        step_interval_id = setInterval(step_grid, 100);
+        step_interval_id = setInterval(step_grid, 500);
         $("#start").prop("disabled",true);
         $("#stop").prop("disabled",false);
     })
@@ -30,6 +30,14 @@ $(function () {
     })
     $("#clear").on('click', reset_grid);
     $("#random").on('click', randomize_grid);
+    $("#birth_submit").on('click', function(){
+        birth_rule = $("#birth_rule").val().split(',').map(Number);
+    });
+    $("#survive_submit").on('click', function(){
+        survive_rule = $("#survive_rule").val().split(',').map(Number);
+    });
+
+
 });
 
 function reset_grid(){
